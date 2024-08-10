@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="mt-4">
+    <h2>Đăng khóa học</h2>
+    <form method="post" action="/courses/{{course._id}}?_method=PUT">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="name">Cập nhật khóa học</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Khóa học A"
+            name="name"
+            value="{{course.name}}"
+            required
+          />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="description">Mô tả</label>
+          <textarea
+            class="form-control"
+            id="description"
+            placeholder="Mô tả"
+            name="description"
+            required
+          >{{course.description}}</textarea>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="image">Image link</label>
+          <input
+            type="text"
+            class="form-control"
+            id="image"
+            placeholder="Image link"
+            name="image"
+            value="{{course.image}}"
+            required
+          />
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label for="level">Trình độ</label>
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="level"
+              placeholder="Trình độ"
+              aria-describedby="inputGroupPrepend2"
+              name="level"
+              value="{{course.level}}"
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Lưu</button>
+    </form>
+  </div>
+</div>
