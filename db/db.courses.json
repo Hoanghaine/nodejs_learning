@@ -1,0 +1,48 @@
+[{
+  "_id": 2,
+  "name": "Nodejs ",
+  "description": "node js is ez",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+  "level": "dễ",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-08-13T05:09:41.318Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-13T05:09:41.318Z"
+  },
+  "slug": "nodejs",
+  "__v": 0
+},
+{
+  "_id": 3,
+  "name": "Html cơ bản",
+  "description": "Html css is ez",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/180px-HTML5_logo_and_wordmark.svg.png",
+  "level": "Siêu dễ",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-08-13T05:10:34.850Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-13T05:10:34.850Z"
+  },
+  "slug": "html-co-ba-n",
+  "__v": 0
+},
+{
+  "_id": 4,
+  "name": "Mobile vs Flutter",
+  "description": "Mobile is ez",
+  "image": "https://vndigitech.com/wp-content/uploads/2022/05/flutter-logo-sharing.png",
+  "level": "trung binh",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-08-13T05:11:00.466Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-13T05:11:00.466Z"
+  },
+  "slug": "mobile-vs-flutter",
+  "__v": 0
+}]
