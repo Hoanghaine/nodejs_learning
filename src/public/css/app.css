@@ -1,13 +1,11 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 .user-avatar {
-  width: 28px;
-  height: 28px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   margin-right: 10px;
-  object-fit: cover;
-}
+  object-fit: cover; }

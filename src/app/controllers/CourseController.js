@@ -26,11 +26,12 @@ class CourseController {
       res.status(500).json({ error: "Failed to fetch courses" });
     }
   }
-  async store(req, res) {
-    console.log(req.body);
+  async store(req, res, next) {
     const course = new Course(req.body);
-    await course.save();
-    res.redirect(`/`);
+    course
+      .save()
+      .then(() => res.redirect(`/me/stored/courses`))
+      .catch(next);
   }
   async update(req, res, next) {
     Course.updateOne({ _id: req.params.id }, req.body)
@@ -42,11 +43,57 @@ class CourseController {
 
   // [DELETE] /courses/:id
   async delete(req, res, next) {
-    Course.deleteOne({_id: req.params.id})
-    .then(()=>{
-      res.redirect('back')
-    })
-    .catch(next)
+    Course.delete({ _id: req.params.id })
+      .then(() => {
+        res.redirect("back");
+      })
+      .catch(next);
+  }
+
+  // [DELETE] /courses/:id/force
+  async forceDelete(req, res, next) {
+    Course.deleteOne({ _id: req.params.id })
+      .then(() => {
+        res.redirect("back");
+      })
+      .catch(next);
+  }
+
+  // [PATCH] /courses/:id/restore
+  async restore(req, res, next) {
+    Course.restore({ _id: req.params.id })
+      .then(() => {
+        res.redirect("back");
+      })
+      .catch(next);
+  }
+
+  handleFormActions(req, res, next) {
+    switch (req.body.action) {
+      case "delete":
+        Course.delete({ _id: { $in: req.body.courseId } })
+          .then(() => res.redirect("back"))
+          .catch(next);
+        break;
+      default:
+        res.json({ message: "Action invalid" });
+    }
+  }
+  handleTrashFormActions(req, res, next) {
+    switch (req.body.action) {
+      case "forceDelete":
+        Course.deleteMany({ _id: { $in: req.body.courseId } })
+          .then(() => res.redirect("back"))
+          .catch(next);
+        break;
+      case "restore":
+        Course.restore({ _id: { $in: req.body.courseId } })
+          .then(() => res.redirect("back"))
+          .catch(next);
+        break;
+      default:
+        res.json({ message: "Action invalid" });
+    }
   }
 }
 module.exports = new CourseController();
